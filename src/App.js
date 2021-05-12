@@ -10,28 +10,24 @@ function App() {
 
   useEffect(get, []);
   useInterval(get, 5000);
+  useEffect(getBeerTypes, []);
 
   function get() {
     fetch("https://foobar-jearasfix.herokuapp.com/")
       .then((res) => res.json())
       .then((data) => {
-        checkTaps(data);
         checkQueue(data);
         checkServing(data);
+        setTapData(data.taps);
       });
   }
 
-  useEffect(() => {
+  function getBeerTypes() {
     fetch("https://foobar-jearasfix.herokuapp.com/beertypes")
       .then((res) => res.json())
       .then((data) => {
         setBeerTypes(data);
       });
-  }, []);
-
-  function checkTaps(props) {
-    console.log(props.taps);
-    setTapData(props.taps);
   }
 
   function checkQueue(props) {
@@ -42,6 +38,17 @@ function App() {
   function checkServing(props) {
     console.log(props.serving);
     setServingData(props.serving);
+  }
+
+  function getBeerImg(beer) {
+    let beerImg = "";
+    beerTypesList.forEach((beerType) => {
+      if (beer.beer === beerType.name) {
+        console.log(beerType.label);
+        beerImg = beerType.label;
+      }
+    });
+    return beerImg;
   }
 
   const beerTypesList = [...beerTypes];
@@ -57,6 +64,7 @@ function App() {
           {beerTypesList.map((beer) => (
             <li key={beer.name}>
               <p>Name: {beer.name}</p>
+              <img src={"./img/" + beer.label} alt={beer.name + " img"} />
             </li>
           ))}
         </ul>
@@ -67,6 +75,7 @@ function App() {
             <li key={beer.id}>
               <p>Name: {beer.beer}</p>
               <p>Levels: {beer.level} cL</p>
+              {<img src={`./img/${getBeerImg(beer)}`} alt={beer.beer + "img"} />}
             </li>
           ))}
         </ul>
