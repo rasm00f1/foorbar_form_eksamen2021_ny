@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import useInterval from "./hooks/useInterval";
+import TapList from "./TapList";
 
 function App() {
   const [tapData, setTapData] = useState([]);
@@ -31,24 +32,11 @@ function App() {
   }
 
   function checkQueue(props) {
-    console.log(props.queue);
     setQueueData(props.queue);
   }
 
   function checkServing(props) {
-    console.log(props.serving);
     setServingData(props.serving);
-  }
-
-  function getBeerImg(beer) {
-    let beerImg = "";
-    beerTypesList.forEach((beerType) => {
-      if (beer.beer === beerType.name) {
-        console.log(beerType.label);
-        beerImg = beerType.label;
-      }
-    });
-    return beerImg;
   }
 
   const beerTypesList = [...beerTypes];
@@ -58,8 +46,10 @@ function App() {
 
   return (
     <div className="App">
-      <div className="row_divider">
-        <ul>
+      <div className="logo">
+        <img src={"./img/foobar_logo.svg"} alt="foobarlogo" />
+      </div>
+      {/*  <ul>
           <h2>Beer Types</h2>
           {beerTypesList.map((beer) => (
             <li key={beer.name}>
@@ -67,18 +57,10 @@ function App() {
               <img src={"./img/" + beer.label} alt={beer.name + " img"} />
             </li>
           ))}
-        </ul>
+        </ul> */}
 
-        <ul>
-          <h2>On Tap</h2>
-          {taps.map((beer) => (
-            <li key={beer.id}>
-              <p>Name: {beer.beer}</p>
-              <p>Levels: {beer.level} cL</p>
-              {<img src={`./img/${getBeerImg(beer)}`} alt={beer.beer + "img"} />}
-            </li>
-          ))}
-        </ul>
+      <TapList taps={taps} beerTypesList={beerTypesList} />
+      <div className="row_divider">
         <ul>
           <h2>Queue</h2>
           {queue.map((customer) => (
