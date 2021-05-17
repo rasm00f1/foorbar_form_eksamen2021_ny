@@ -5,7 +5,7 @@ export default function TapList(props) {
       <h2>On Tap</h2>
       <div className="productList">
         {props.taps.map((beer) => (
-          <Beer {...beer} beerTypesList={props.beerTypesList} key={beer.id} />
+          <Beer {...beer} beerTypesList={props.beerTypesList} addToCart={props.addToCart} key={beer.id} />
         ))}
       </div>
     </main>

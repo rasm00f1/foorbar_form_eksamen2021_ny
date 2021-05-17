@@ -10,6 +10,7 @@ function App() {
   const [beerTypes, setBeerTypes] = useState([]);
   const [queueData, setQueueData] = useState([]);
   const [servingData, setServingData] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(get, []);
   useInterval(get, 5000);
@@ -41,6 +42,25 @@ function App() {
     setServingData(props.serving);
   }
 
+  function addToCart(payload) {
+    const inCart = cartItems.findIndex((item) => item.id === payload.id);
+    if (inCart === -1) {
+      //add
+      const nextPayload = { ...payload };
+      nextPayload.amount = 1;
+      setCartItems((prevState) => [...prevState, nextPayload]);
+    } else {
+      //it exists, modify amount
+      const nextCart = cartItems.map((item) => {
+        if (item.id === payload.id) {
+          item.amount += 1;
+        }
+        return item;
+      });
+      setCartItems(nextCart);
+    }
+  }
+
   const beerTypesList = [...beerTypes];
   const taps = [...tapData];
   const queue = [...queueData];
@@ -51,10 +71,7 @@ function App() {
       <div className="logo">
         <img src={"./img/foobar_logo.svg"} alt="foobarlogo" />
       </div>
-      <nav>
-        <Link to="taplist">Taplist</Link>
-        <Link to="data_flow">Data</Link>
-      </nav>
+      <nav></nav>
       {/*  <ul>
           <h2>Beer Types</h2>
           {beerTypesList.map((beer) => (
@@ -64,12 +81,9 @@ function App() {
             </li>
           ))}
         </ul> */}
-      <Router>
-        <TapList taps={taps} beerTypesList={beerTypesList} path="taplist" />
-      </Router>
-      <Router>
-        <DataFlow path="data_flow" queue={queue} serving={serving} />
-      </Router>
+      <TapList taps={taps} beerTypesList={beerTypesList} addToCart={addToCart} />
+
+      <DataFlow queue={queue} serving={serving} />
     </div>
   );
 }

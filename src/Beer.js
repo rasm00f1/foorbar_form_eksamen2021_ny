@@ -1,15 +1,16 @@
 import { Disclosure } from "@headlessui/react";
+import AddButton from "./AddButton";
 export default function Beer(props) {
   const styles = {
-    boxShadow: "2px 2px 10px rgb(30, 180, 228, 0.50)",
-    backgroundColor: "#343434",
-    borderRadius: "4px",
-    border: "5px solid #16ACDA",
+    boxShadow: "10px 7px 0px #896BFF",
+    backgroundColor: "#49494D",
+    borderRadius: "10px",
     padding: "1rem",
-    maxWidth: "300px",
-    height: "550px",
+    minWidth: "100px",
+    height: "200px",
     color: "white",
     overflowY: "scroll",
+    margin: "0 auto",
   };
 
   let beerImg = "";
@@ -34,6 +35,7 @@ export default function Beer(props) {
           <p>{beerInfo}</p>
         </Disclosure.Panel>
       </Disclosure>
+      <AddButton addToCart={props.addToCart} {...props} />
     </article>
   );
 }
