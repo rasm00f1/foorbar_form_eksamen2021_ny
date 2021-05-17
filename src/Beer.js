@@ -16,13 +16,17 @@ export default function Beer(props) {
   };
 
   let beerImg = "";
-  let beerMouthFeel = "";
+  let beerAroma = "";
+  let beerAppearance = "";
+  let beerFlavor = "";
   let beerAlc = "";
   props.beerTypesList.forEach((beerType) => {
     if (props.beer === beerType.name) {
       beerImg = beerType.label;
       beerAlc = beerType.alc;
-      beerMouthFeel = beerType.description.overallImpression;
+      beerAroma = beerType.description.aroma;
+      beerAppearance = beerType.description.appearance;
+      beerFlavor = beerType.description.flavor;
     }
   });
   return (
@@ -42,23 +46,23 @@ export default function Beer(props) {
           <img style={{ maxWidth: "250px", boxShadow: "10px 7px 0px #896BFF", backgroundColor: "#49494D", borderRadius: "10px" }} src={"./img/" + beerImg} alt="img" />
 
           <Disclosure>
-            <Disclosure.Button>Mouthfeel</Disclosure.Button>
-            <Disclosure.Panel>
-              <Dialog.Description>{beerMouthFeel}</Dialog.Description>
+            <Disclosure.Button className="disclosure_button">AROMA</Disclosure.Button>
+            <Disclosure.Panel className="disclosure">
+              <Dialog.Description>{beerAroma}</Dialog.Description>
             </Disclosure.Panel>
           </Disclosure>
 
           <Disclosure>
-            <Disclosure.Button>Mouthfeel</Disclosure.Button>
-            <Disclosure.Panel>
-              <Dialog.Description>{beerMouthFeel}</Dialog.Description>
+            <Disclosure.Button className="disclosure_button">APPEARANCE</Disclosure.Button>
+            <Disclosure.Panel className="disclosure">
+              <Dialog.Description>{beerAppearance}</Dialog.Description>
             </Disclosure.Panel>
           </Disclosure>
 
           <Disclosure>
-            <Disclosure.Button>Mouthfeel</Disclosure.Button>
-            <Disclosure.Panel>
-              <Dialog.Description>{beerMouthFeel}</Dialog.Description>
+            <Disclosure.Button className="disclosure_button">FLAVOR</Disclosure.Button>
+            <Disclosure.Panel className="disclosure">
+              <Dialog.Description>{beerFlavor}</Dialog.Description>
             </Disclosure.Panel>
           </Disclosure>
 

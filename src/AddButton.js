@@ -6,6 +6,7 @@ export default function AddButton(props) {
     borderRadius: "4px",
     width: "8rem",
     justifyContent: "space-between",
+    marginTop: "20px",
   };
 
   const [amount, setAmount] = useState(0);
