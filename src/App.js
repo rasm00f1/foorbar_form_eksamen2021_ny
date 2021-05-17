@@ -2,6 +2,8 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import useInterval from "./hooks/useInterval";
 import TapList from "./TapList";
+import DataFlow from "./DataFlow";
+import { Router, Link } from "@reach/router";
 
 function App() {
   const [tapData, setTapData] = useState([]);
@@ -49,6 +51,10 @@ function App() {
       <div className="logo">
         <img src={"./img/foobar_logo.svg"} alt="foobarlogo" />
       </div>
+      <nav>
+        <Link to="taplist">Taplist</Link>
+        <Link to="data_flow">Data</Link>
+      </nav>
       {/*  <ul>
           <h2>Beer Types</h2>
           {beerTypesList.map((beer) => (
@@ -58,30 +64,12 @@ function App() {
             </li>
           ))}
         </ul> */}
-
-      <TapList taps={taps} beerTypesList={beerTypesList} />
-      <div className="row_divider">
-        <ul>
-          <h2>Queue</h2>
-          {queue.map((customer) => (
-            <li key={customer.id}>
-              <p>ID: {customer.id}</p>
-              <p>Order Time: {customer.startTime}</p>
-              <p>Order: {customer.order}</p>
-            </li>
-          ))}
-        </ul>
-        <ul>
-          <h2>Serving</h2>
-          {serving.map((customer) => (
-            <li key={customer.id}>
-              <p>ID: {customer.id}</p>
-              <p>Order Time: {customer.startTime}</p>
-              <p>Order: {customer.order}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <Router>
+        <TapList taps={taps} beerTypesList={beerTypesList} path="taplist" />
+      </Router>
+      <Router>
+        <DataFlow path="data_flow" queue={queue} serving={serving} />
+      </Router>
     </div>
   );
 }
