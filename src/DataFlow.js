@@ -1,6 +1,6 @@
 export default function DataFlow(props) {
   return (
-    <div className="row_divider" path="data_flow">
+    <div>
       <ul>
         <h2>Serving</h2>
         {props.serving.map((customer) => (

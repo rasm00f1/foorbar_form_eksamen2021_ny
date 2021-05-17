@@ -26,6 +26,21 @@ function App() {
       });
   }
 
+  function post() {
+    const data = cartItems.map((item) => {
+      return { name: item.beer, amount: item.amount };
+    });
+    console.log(data);
+    const postData = JSON.stringify(data);
+    fetch("https://foobar-jearasfix.herokuapp.com/order", {
+      method: "post",
+      body: postData,
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+    });
+  }
+
   function getBeerTypes() {
     fetch("https://foobar-jearasfix.herokuapp.com/beertypes")
       .then((res) => res.json())
@@ -46,14 +61,15 @@ function App() {
     const inCart = cartItems.findIndex((item) => item.id === payload.id);
     if (inCart === -1) {
       //add
+      console.log(payload);
       const nextPayload = { ...payload };
-      nextPayload.amount = 1;
+      nextPayload.amount = payload.amount;
       setCartItems((prevState) => [...prevState, nextPayload]);
     } else {
       //it exists, modify amount
       const nextCart = cartItems.map((item) => {
         if (item.id === payload.id) {
-          item.amount += 1;
+          item.amount += payload.amount;
         }
         return item;
       });
@@ -71,18 +87,8 @@ function App() {
       <div className="logo">
         <img src={"./img/foobar_logo.svg"} alt="foobarlogo" />
       </div>
-      <nav></nav>
-      {/*  <ul>
-          <h2>Beer Types</h2>
-          {beerTypesList.map((beer) => (
-            <li key={beer.name}>
-              <p>Name: {beer.name}</p>
-              <img src={"./img/" + beer.label} alt={beer.name + " img"} />
-            </li>
-          ))}
-        </ul> */}
       <TapList taps={taps} beerTypesList={beerTypesList} addToCart={addToCart} />
-
+      <button onClick={post}>POST</button>
       <DataFlow queue={queue} serving={serving} />
     </div>
   );

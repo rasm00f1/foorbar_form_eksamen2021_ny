@@ -18,15 +18,55 @@
   flex-direction: row;
 }
 
-img {
-  width: 100%;
+article img {
+  width: 150px;
+  height: 150px;
   max-width: 300px;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  z-index: -10;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(20, 20, 20, 0.5);
+}
+
+.dialog {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.dialog_center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #4a494d;
+  color: white;
+
+  margin: 0 auto;
+  height: 100vh;
+}
+
+main {
+  max-width: 1400px;
+  padding-right: 25px;
+  margin: 0 auto;
 }
 
 .productList {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+  grid-gap: 20px;
 }
 
 .indexButton {
