@@ -1,12 +1,16 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import useInterval from "./hooks/useInterval";
+import TapList from "./TapList";
+import DataFlow from "./DataFlow";
+import { Router, Link } from "@reach/router";
 
 function App() {
   const [tapData, setTapData] = useState([]);
   const [beerTypes, setBeerTypes] = useState([]);
   const [queueData, setQueueData] = useState([]);
   const [servingData, setServingData] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(get, []);
   useInterval(get, 5000);
@@ -31,24 +35,30 @@ function App() {
   }
 
   function checkQueue(props) {
-    console.log(props.queue);
     setQueueData(props.queue);
   }
 
   function checkServing(props) {
-    console.log(props.serving);
     setServingData(props.serving);
   }
 
-  function getBeerImg(beer) {
-    let beerImg = "";
-    beerTypesList.forEach((beerType) => {
-      if (beer.beer === beerType.name) {
-        console.log(beerType.label);
-        beerImg = beerType.label;
-      }
-    });
-    return beerImg;
+  function addToCart(payload) {
+    const inCart = cartItems.findIndex((item) => item.id === payload.id);
+    if (inCart === -1) {
+      //add
+      const nextPayload = { ...payload };
+      nextPayload.amount = 1;
+      setCartItems((prevState) => [...prevState, nextPayload]);
+    } else {
+      //it exists, modify amount
+      const nextCart = cartItems.map((item) => {
+        if (item.id === payload.id) {
+          item.amount += 1;
+        }
+        return item;
+      });
+      setCartItems(nextCart);
+    }
   }
 
   const beerTypesList = [...beerTypes];
@@ -58,8 +68,11 @@ function App() {
 
   return (
     <div className="App">
-      <div className="row_divider">
-        <ul>
+      <div className="logo">
+        <img src={"./img/foobar_logo.svg"} alt="foobarlogo" />
+      </div>
+      <nav></nav>
+      {/*  <ul>
           <h2>Beer Types</h2>
           {beerTypesList.map((beer) => (
             <li key={beer.name}>
@@ -67,39 +80,10 @@ function App() {
               <img src={"./img/" + beer.label} alt={beer.name + " img"} />
             </li>
           ))}
-        </ul>
+        </ul> */}
+      <TapList taps={taps} beerTypesList={beerTypesList} addToCart={addToCart} />
 
-        <ul>
-          <h2>On Tap</h2>
-          {taps.map((beer) => (
-            <li key={beer.id}>
-              <p>Name: {beer.beer}</p>
-              <p>Levels: {beer.level} cL</p>
-              {<img src={`./img/${getBeerImg(beer)}`} alt={beer.beer + "img"} />}
-            </li>
-          ))}
-        </ul>
-        <ul>
-          <h2>Queue</h2>
-          {queue.map((customer) => (
-            <li key={customer.id}>
-              <p>ID: {customer.id}</p>
-              <p>Order Time: {customer.startTime}</p>
-              <p>Order: {customer.order}</p>
-            </li>
-          ))}
-        </ul>
-        <ul>
-          <h2>Serving</h2>
-          {serving.map((customer) => (
-            <li key={customer.id}>
-              <p>ID: {customer.id}</p>
-              <p>Order Time: {customer.startTime}</p>
-              <p>Order: {customer.order}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <DataFlow queue={queue} serving={serving} />
     </div>
   );
 }
