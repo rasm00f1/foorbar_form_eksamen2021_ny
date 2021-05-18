@@ -66,7 +66,7 @@ export default function Beer(props) {
             </Disclosure.Panel>
           </Disclosure>
 
-          <AddButton addToCart={props.addToCart} {...props} />
+          <AddButton setIsOpen={setIsOpen} addToCart={props.addToCart} {...props} />
         </div>
       </Dialog>
     </article>
