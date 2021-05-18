@@ -18,15 +18,80 @@
   flex-direction: row;
 }
 
-img {
-  width: 100%;
+article img {
+  width: 150px;
+  height: 150px;
   max-width: 300px;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  z-index: -10;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(20, 20, 20, 0.5);
+}
+
+.dialog {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.dialog_center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: #4a494d;
+  color: white;
+
+  margin: 0 auto;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.disclosure_button {
+  background-color: #2c2c2c;
+  width: 300px;
+  border-style: none;
+  text-align: left;
+  cursor: pointer;
+
+  box-shadow: 4px 4px 0px #896bff;
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 20px;
+
+  color: white;
+}
+
+.disclosure {
+  width: 280px;
+  background-color: #2c2c2c;
+  box-shadow: 4px 4px 0px #896bff;
+  border-radius: 0px 0px 4px 4px;
+  padding: 10px;
+
+  color: white;
+}
+
+main {
+  max-width: 1400px;
+  padding-right: 25px;
+  margin: 0 auto;
 }
 
 .productList {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+  grid-gap: 20px;
 }
 
 .indexButton {
@@ -55,4 +120,29 @@ img {
 .no_scroll {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+/*MEDIA QUERY*/
+
+@media screen and (min-width: 1200px) {
+  .dialog_center {
+    margin-top: 5vh;
+
+    border: 4px solid #16acda;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px #47c4eb8a;
+
+    width: 40vw;
+    height: 80vh;
+  }
+
+  .dialog_center::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .dialog_center {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
 }

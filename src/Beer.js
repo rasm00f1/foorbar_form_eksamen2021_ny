@@ -1,41 +1,74 @@
-import { Disclosure } from "@headlessui/react";
+import { Disclosure, Dialog, RadioGroup } from "@headlessui/react";
+import { useState } from "react";
 import AddButton from "./AddButton";
 export default function Beer(props) {
+  let [isOpen, setIsOpen] = useState(false);
+
   const styles = {
-    boxShadow: "10px 7px 0px #896BFF",
-    backgroundColor: "#49494D",
-    borderRadius: "10px",
     padding: "1rem",
-    minWidth: "100px",
-    height: "200px",
     color: "white",
-    overflowY: "scroll",
-    margin: "0 auto",
+  };
+
+  const stylesImg = {
+    boxShadow: "10px 7px 0px #896BFF",
+    backgroundColor: "#c4c4c4",
+    borderRadius: "10px",
   };
 
   let beerImg = "";
-  let beerInfo = "";
+  let beerAroma = "";
+  let beerAppearance = "";
+  let beerFlavor = "";
   let beerAlc = "";
   props.beerTypesList.forEach((beerType) => {
     if (props.beer === beerType.name) {
       beerImg = beerType.label;
       beerAlc = beerType.alc;
-      beerInfo = beerType.description.overallImpression;
+      beerAroma = beerType.description.aroma;
+      beerAppearance = beerType.description.appearance;
+      beerFlavor = beerType.description.flavor;
     }
   });
   return (
-    <article className="no_scroll" style={styles}>
+    <article style={{ backgroundColor: "black" }} className="no_scroll" style={styles}>
+      <img onClick={() => setIsOpen(true)} style={stylesImg} src={"./img/" + beerImg} alt="img" />
       <h3>{props.beer}</h3>
-      <img src={"./img/" + beerImg} alt="img" />
 
       <h3>{beerAlc}%</h3>
-      <Disclosure>
-        <Disclosure.Button>Mouth Feel</Disclosure.Button>
-        <Disclosure.Panel>
-          <p>{beerInfo}</p>
-        </Disclosure.Panel>
-      </Disclosure>
-      <AddButton addToCart={props.addToCart} {...props} />
+
+      <Dialog className="dialog" open={isOpen} onClose={() => setIsOpen(false)}>
+        <Dialog.Overlay className="modal" />
+        <div className="dialog_center">
+          <p style={{ cursor: "pointer" }} onClick={() => setIsOpen(false)}>
+            X
+          </p>
+          <Dialog.Title>{props.beer}</Dialog.Title>
+          <img style={{ maxWidth: "250px", boxShadow: "10px 7px 0px #896BFF", backgroundColor: "#C4C4C4", borderRadius: "10px" }} src={"./img/" + beerImg} alt="img" />
+
+          <Disclosure>
+            <Disclosure.Button className="disclosure_button">AROMA</Disclosure.Button>
+            <Disclosure.Panel className="disclosure">
+              <Dialog.Description>{beerAroma}</Dialog.Description>
+            </Disclosure.Panel>
+          </Disclosure>
+
+          <Disclosure>
+            <Disclosure.Button className="disclosure_button">APPEARANCE</Disclosure.Button>
+            <Disclosure.Panel className="disclosure">
+              <Dialog.Description>{beerAppearance}</Dialog.Description>
+            </Disclosure.Panel>
+          </Disclosure>
+
+          <Disclosure>
+            <Disclosure.Button className="disclosure_button">FLAVOR</Disclosure.Button>
+            <Disclosure.Panel className="disclosure">
+              <Dialog.Description>{beerFlavor}</Dialog.Description>
+            </Disclosure.Panel>
+          </Disclosure>
+
+          <AddButton addToCart={props.addToCart} {...props} />
+        </div>
+      </Dialog>
     </article>
   );
 }
