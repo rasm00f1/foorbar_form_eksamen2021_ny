@@ -56,6 +56,7 @@ export default function AddButton(props) {
 
   function addToCartForward() {
     console.log(queueCartItems[0]);
+    props.setIsOpen(false);
     props.addToCart(queueCartItems[0]);
   }
   return (
