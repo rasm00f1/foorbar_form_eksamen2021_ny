@@ -1,8 +1,11 @@
 import "./App.css";
+import "./Fonts.css";
+
 import { useState, useEffect } from "react";
 import useInterval from "./hooks/useInterval";
 import TapList from "./TapList";
 import DataFlow from "./DataFlow";
+import CartOverview from "./CartOverview";
 import { Router, Link } from "@reach/router";
 
 function App() {
@@ -87,9 +90,14 @@ function App() {
       <div className="logo">
         <img src={"./img/foobar_logo.svg"} alt="foobarlogo" />
       </div>
-      <TapList taps={taps} beerTypesList={beerTypesList} addToCart={addToCart} />
+      <TapList
+        taps={taps}
+        beerTypesList={beerTypesList}
+        addToCart={addToCart}
+      />
       <button onClick={post}>POST</button>
       <DataFlow queue={queue} serving={serving} />
+      <CartOverview cartItems={cartItems} setCartItems={setCartItems} />
     </div>
   );
 }

@@ -1,0 +1,51 @@
+[
+  {
+    "beername": "El Hefe",
+    "price": 45
+  },
+
+  {
+    "beername": "Fairy Tale Ale",
+    "price": 60
+  },
+
+  {
+    "beername": "GitHop",
+    "price": 45
+  },
+
+  {
+    "beername": "Hollaback Lager",
+    "price": 60
+  },
+
+  {
+    "beername": "Hoppily Ever After",
+    "price": 53
+  },
+
+  {
+    "beername": "Mowintime",
+    "price": 55
+  },
+
+  {
+    "beername": "Row 26",
+    "price": 45
+  },
+
+  {
+    "beername": "Ruined Childhood",
+    "price": 70
+  },
+
+  {
+    "beername": "Sleighride",
+    "price": 62
+  },
+
+  {
+    "beername": "Steampunk",
+    "price": 55
+  }
+]
