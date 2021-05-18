@@ -11,7 +11,7 @@ export default function Beer(props) {
 
   const stylesImg = {
     boxShadow: "10px 7px 0px #896BFF",
-    backgroundColor: "#49494D",
+    backgroundColor: "#c4c4c4",
     borderRadius: "10px",
   };
 
@@ -43,7 +43,7 @@ export default function Beer(props) {
             X
           </p>
           <Dialog.Title>{props.beer}</Dialog.Title>
-          <img style={{ maxWidth: "250px", boxShadow: "10px 7px 0px #896BFF", backgroundColor: "#49494D", borderRadius: "10px" }} src={"./img/" + beerImg} alt="img" />
+          <img style={{ maxWidth: "250px", boxShadow: "10px 7px 0px #896BFF", backgroundColor: "#C4C4C4", borderRadius: "10px" }} src={"./img/" + beerImg} alt="img" />
 
           <Disclosure>
             <Disclosure.Button className="disclosure_button">AROMA</Disclosure.Button>

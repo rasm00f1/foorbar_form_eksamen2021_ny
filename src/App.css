@@ -121,3 +121,28 @@ main {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+/*MEDIA QUERY*/
+
+@media screen and (min-width: 1200px) {
+  .dialog_center {
+    margin-top: 5vh;
+
+    border: 4px solid #16acda;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px #47c4eb8a;
+
+    width: 40vw;
+    height: 80vh;
+  }
+
+  .dialog_center::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .dialog_center {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
