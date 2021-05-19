@@ -20,6 +20,8 @@ export default function Beer(props) {
   let beerAppearance = "";
   let beerFlavor = "";
   let beerAlc = "";
+  let beerPrice = 0;
+
   props.beerTypesList.forEach((beerType) => {
     if (props.beer === beerType.name) {
       beerImg = beerType.label;
@@ -29,10 +31,20 @@ export default function Beer(props) {
       beerFlavor = beerType.description.flavor;
     }
   });
-  return (
 
+  props.prices.map((price) => {
+    if (props.beer === price.beername) {
+      beerPrice = price.price;
+    }
+  });
+  return (
     <article className="no_scroll" style={styles}>
-      <img onClick={() => setIsOpen(true)} style={stylesImg} src={"./img/" + beerImg} alt="img" />
+      <img
+        onClick={() => setIsOpen(true)}
+        style={stylesImg}
+        src={"./img/" + beerImg}
+        alt="img"
+      />
       <h3>{props.beer}</h3>
 
       <h3>{beerAlc}%</h3>
@@ -40,6 +52,7 @@ export default function Beer(props) {
       <Dialog className="dialog" open={isOpen} onClose={() => setIsOpen(false)}>
         <Dialog.Overlay className="modal" />
         <div className="dialog_center">
+          <h3>{beerPrice}</h3>
           <p style={{ cursor: "pointer" }} onClick={() => setIsOpen(false)}>
             X
           </p>
