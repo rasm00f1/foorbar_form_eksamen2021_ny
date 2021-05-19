@@ -53,6 +53,7 @@ function App() {
         "Content-Type": "application/json; charset=utf-8",
       },
     });
+    setCartItems([]);
   }
 
   function getBeerTypes() {

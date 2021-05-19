@@ -1,26 +1,23 @@
+import Queue from "./Queue";
 export default function DataFlow(props) {
   return (
-    <div>
-      <ul>
+    <div className="row_divider">
+      <section className="data_section">
         <h2>Serving</h2>
-        {props.serving.map((customer) => (
-          <li key={customer.id}>
-            <p>ID: {customer.id}</p>
-            <p>Order Time: {customer.startTime}</p>
-            <p>Order: {customer.order}</p>
-          </li>
-        ))}
-      </ul>
-      <ul>
+        <div className="data_container">
+          {props.serving.map((customer) => (
+            <Queue {...customer} key={customer.id} />
+          ))}
+        </div>
+      </section>
+      <section className="data_section">
         <h2>Queue</h2>
-        {props.queue.map((customer) => (
-          <li key={customer.id}>
-            <p>ID: {customer.id}</p>
-            <p>Order Time: {customer.startTime}</p>
-            <p>Order: {customer.order}</p>
-          </li>
-        ))}
-      </ul>
+        <div className="data_container">
+          {props.queue.map((customer) => (
+            <Queue {...customer} key={customer.id} />
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

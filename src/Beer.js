@@ -30,17 +30,9 @@ export default function Beer(props) {
     }
   });
   return (
-    <article
-      style={{ backgroundColor: "black" }}
-      className="no_scroll"
-      style={styles}
-    >
-      <img
-        onClick={() => setIsOpen(true)}
-        style={stylesImg}
-        src={"./img/" + beerImg}
-        alt="img"
-      />
+
+    <article className="no_scroll" style={styles}>
+      <img onClick={() => setIsOpen(true)} style={stylesImg} src={"./img/" + beerImg} alt="img" />
       <h3>{props.beer}</h3>
 
       <h3>{beerAlc}%</h3>
