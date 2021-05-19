@@ -1,5 +1,5 @@
 import CartItem from "./CartItem";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // import sameBeerPrice from "./CartItem";
 
 //CartOverview - Jean & Rasmus
@@ -7,6 +7,21 @@ import { useState } from "react";
 export default function CartOverview(props) {
   //   console.log(sameBeerPrice);
   const [totalPrice, setTotalPrice] = useState(0);
+
+  useEffect(() => {
+    calcTotalPrice();
+    console.log(totalPrice);
+  });
+
+  //Calc SubTotal
+  const calcTotalPrice = () => {
+    let sum = 0;
+    props.cartItems.map((item) => {
+      //   sum = sum + item.prices.price;
+      console.log(item.prices.price);
+    });
+    setTotalPrice(sum);
+  };
 
   return (
     <section className="overview_wrapper">
@@ -19,8 +34,8 @@ export default function CartOverview(props) {
           {...item}
           key={item.id}
           prices={props.prices}
-          totalPrice={totalPrice}
-          setTotalPrice={setTotalPrice}
+          //   totalPrice={totalPrice}
+          //   setTotalPrice={setTotalPrice}
         />
       ))}
       <div className="subtotal">

@@ -12,10 +12,10 @@ export default function CartItem(props) {
   let beerPrice = 0;
   //TESTING BEER PRICE
   //   props.setTotalPrice((prevState) => [...prevState, beerPrice]);
-  const testBeerPrice = props.totalPrice.map((price) => {
-    price += totalBeerPrice;
-    return price;
-  });
+  //   const testBeerPrice = props.totalPrice.map((price) => {
+  //     price += totalBeerPrice;
+  //     return price;
+  //   });
 
   props.prices.map((price) => {
     if (props.beer === price.beername) {
