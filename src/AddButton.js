@@ -42,16 +42,16 @@ export default function AddButton(props) {
   }
 
   function removeFromCartQueue(payload) {
-    let nextBasket = queueCartItems.map((item) => {
+    let nextCart = queueCartItems.map((item) => {
       if (item.id === payload.id) {
         item.amount -= 1;
         if (item.amount === 0) {
-          console.log("cry");
+          console.log("No beers");
         }
       }
       return item;
     });
-    setQueueCartItems(nextBasket);
+    setQueueCartItems(nextCart);
   }
 
   function addToCartForward() {
@@ -70,7 +70,9 @@ export default function AddButton(props) {
           +
         </button>
       </div>
-      <button onClick={addToCartForward}>Add</button>
+      <button disabled={amount === 0} onClick={addToCartForward}>
+        Add
+      </button>
     </div>
   );
 }
