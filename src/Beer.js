@@ -30,6 +30,7 @@ export default function Beer(props) {
     }
   });
   return (
+
     <article className="no_scroll" style={styles}>
       <img onClick={() => setIsOpen(true)} style={stylesImg} src={"./img/" + beerImg} alt="img" />
       <h3>{props.beer}</h3>
@@ -43,30 +44,49 @@ export default function Beer(props) {
             X
           </p>
           <Dialog.Title>{props.beer}</Dialog.Title>
-          <img style={{ maxWidth: "250px", boxShadow: "10px 7px 0px #896BFF", backgroundColor: "#C4C4C4", borderRadius: "10px" }} src={"./img/" + beerImg} alt="img" />
+          <img
+            style={{
+              maxWidth: "250px",
+              boxShadow: "10px 7px 0px #896BFF",
+              backgroundColor: "#C4C4C4",
+              borderRadius: "10px",
+            }}
+            src={"./img/" + beerImg}
+            alt="img"
+          />
 
           <Disclosure>
-            <Disclosure.Button className="disclosure_button">AROMA</Disclosure.Button>
+            <Disclosure.Button className="disclosure_button">
+              AROMA
+            </Disclosure.Button>
             <Disclosure.Panel className="disclosure">
               <Dialog.Description>{beerAroma}</Dialog.Description>
             </Disclosure.Panel>
           </Disclosure>
 
           <Disclosure>
-            <Disclosure.Button className="disclosure_button">APPEARANCE</Disclosure.Button>
+            <Disclosure.Button className="disclosure_button">
+              APPEARANCE
+            </Disclosure.Button>
             <Disclosure.Panel className="disclosure">
               <Dialog.Description>{beerAppearance}</Dialog.Description>
             </Disclosure.Panel>
           </Disclosure>
 
           <Disclosure>
-            <Disclosure.Button className="disclosure_button">FLAVOR</Disclosure.Button>
+            <Disclosure.Button className="disclosure_button">
+              FLAVOR
+            </Disclosure.Button>
             <Disclosure.Panel className="disclosure">
               <Dialog.Description>{beerFlavor}</Dialog.Description>
             </Disclosure.Panel>
           </Disclosure>
 
-          <AddButton setIsOpen={setIsOpen} addToCart={props.addToCart} {...props} />
+          <AddButton
+            setIsOpen={setIsOpen}
+            addToCart={props.addToCart}
+            {...props}
+          />
         </div>
       </Dialog>
     </article>
