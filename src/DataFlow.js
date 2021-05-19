@@ -6,10 +6,7 @@ export default function DataFlow(props) {
         <h2>Serving</h2>
         <div className="data_container">
           {props.serving.map((customer) => (
-            <div className="side_by_side" key={customer.id}>
-              <h2>#{customer.id}</h2>
-              <p>Order: {customer.order}</p>
-            </div>
+            <Queue {...customer} key={customer.id} />
           ))}
         </div>
       </section>
