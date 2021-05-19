@@ -7,7 +7,6 @@ export default function OverviewButton(props) {
     width: "8rem",
     justifyContent: "space-between",
   };
-  console.log(props);
 
   const [amount, setAmount] = useState(0);
   const [queueCartItems, setQueueCartItems] = useState([]);
