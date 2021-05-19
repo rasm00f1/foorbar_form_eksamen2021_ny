@@ -1,5 +1,6 @@
 import "./App.css";
 import "./Fonts.css";
+import "./OverviewOrder.css";
 
 import { useState, useEffect } from "react";
 import useInterval from "./hooks/useInterval";
@@ -14,10 +15,12 @@ function App() {
   const [queueData, setQueueData] = useState([]);
   const [servingData, setServingData] = useState([]);
   const [cartItems, setCartItems] = useState([]);
+  const [prices, setPrices] = useState([]);
 
   useEffect(get, []);
   useInterval(get, 5000);
   useEffect(getBeerTypes, []);
+  useEffect(getPrices, []);
 
   function get() {
     fetch("https://foobar-jearasfix.herokuapp.com/")
@@ -26,6 +29,14 @@ function App() {
         checkQueue(data);
         checkServing(data);
         setTapData(data.taps);
+      });
+  }
+
+  function getPrices() {
+    fetch("./beerprice.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setPrices(data);
       });
   }
 
@@ -91,6 +102,7 @@ function App() {
         <img src={"./img/foobar_logo.svg"} alt="foobarlogo" />
       </div>
       <TapList
+        prices={prices}
         taps={taps}
         beerTypesList={beerTypesList}
         addToCart={addToCart}

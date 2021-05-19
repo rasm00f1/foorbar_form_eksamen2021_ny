@@ -1,0 +1,83 @@
+.image_container img {
+  width: 120px;
+  height: 120px;
+  max-width: 120px;
+}
+
+.overview_h1 {
+  text-align: center;
+}
+
+.overview_wrapper {
+  background-color: #232323;
+  border: 5px solid #16acda;
+  border-radius: 5px;
+  margin: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.backMenu {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* PARENT */
+.beer_container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  background-color: #49494d;
+  height: 120px;
+  min-width: 300px;
+}
+
+.title_container {
+  flex-grow: 4;
+  flex-basis: 90px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+/* CHILD */
+.beer_header {
+  /* flex-grow: 4;
+  flex-basis: 90px; */
+  flex-grow: 1;
+  text-decoration: underline;
+  position: relative;
+}
+.small_title {
+  font-size: 0.7rem;
+}
+/* CHILD */
+.image_container {
+  flex-grow: 1;
+  flex-basis: 30px;
+}
+/* CHILD */
+.under_col {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+@media only screen and (min-width: 550px) {
+  .small_title {
+    font-size: 1rem;
+  }
+  .beer_container {
+    min-width: 500px;
+  }
+}

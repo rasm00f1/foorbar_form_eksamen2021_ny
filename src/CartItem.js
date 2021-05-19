@@ -1,3 +1,5 @@
+import AddButton from "./AddButton";
+
 export default function CartItem(props) {
   let beerimage = "";
   //ForEach beertype in the list check if beer == beerType.name
@@ -7,16 +9,23 @@ export default function CartItem(props) {
     }
   });
   return (
-    <div className="overview_wrapper">
-      <h1>Overview Order</h1>
+    <div>
       <div className="beer_container">
-        <h2>{props.beer}</h2>
-        <div className="amount">
-          <p>{props.amount}</p>
+        <button className="close">Close</button>
+
+        <div className="image_container">
+          <img src={"./img/" + beerimage} alt="" />
+        </div>
+        <div className="title_container">
+          <div className="beer_header">
+            <h2 className="small_title">{props.beer}</h2>
+          </div>
+
+          <div className="under_col">
+            <h2 className="small_title price">00 KR.</h2>
+          </div>
         </div>
       </div>
-
-      <img src={"./img/" + beerimage} alt="" />
     </div>
   );
 }
