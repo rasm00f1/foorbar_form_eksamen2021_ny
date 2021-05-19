@@ -30,6 +30,7 @@ export default function CartOverview(props) {
       {/* Mapping over CartItems */}
       {props.cartItems.map((item) => (
         // Creating a new components for the item
+
         <CartItem
           {...item}
           key={item.id}

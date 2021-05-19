@@ -1,4 +1,4 @@
-import AddButton from "./AddButton";
+import OverviewButton from "./OverviewButton";
 
 export default function CartItem(props) {
   let beerimage = "";
@@ -40,7 +40,10 @@ export default function CartItem(props) {
           </div>
 
           <div className="under_col">
-            <h2 className="small_title price">{totalBeerPrice}</h2>
+
+            <h2 className="small_title price">00 KR.</h2>
+            <OverviewButton setCartItems={props.setCartItems} {...props} key={props.id} />
+
           </div>
         </div>
       </div>
