@@ -3,7 +3,7 @@ export default function Queue(props) {
     return self.indexOf(value) === index;
   }
   function getOccurence(value) {
-    return props.order.filter((v) => v === value).length;
+    return props.order.filter((order) => order === value).length;
   }
   const uniqueQueue = props.order.filter(getUnique);
 
