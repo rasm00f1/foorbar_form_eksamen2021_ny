@@ -10,7 +10,7 @@ export default function CartOverview(props) {
       {/* Mapping over CartItems */}
       {props.cartItems.map((item) => (
         // Creating a new components for the item
-        <CartItem {...item} key={item.id} />
+        <CartItem setCartItems={props.setCartItems} {...item} key={item.id} />
       ))}
       <div className="subtotal">
         <h3>Subtotal 00 KR.</h3>
