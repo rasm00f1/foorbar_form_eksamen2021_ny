@@ -1,4 +1,5 @@
 import OverviewButton from "./OverviewButton";
+import { useEffect } from "react";
 
 export default function CartItem(props) {
   let beerimage = "";
@@ -9,20 +10,22 @@ export default function CartItem(props) {
     }
   });
 
+  useEffect(() => {
+    calcNewPrice();
+  }, []);
   let beerPrice = 0;
-  //TESTING BEER PRICE
-  //   props.setTotalPrice((prevState) => [...prevState, beerPrice]);
-  //   const testBeerPrice = props.totalPrice.map((price) => {
-  //     price += totalBeerPrice;
-  //     return price;
-  //   });
-
   props.prices.map((price) => {
     if (props.beer === price.beername) {
       beerPrice = price.price;
     }
+    return beerPrice;
   });
   let totalBeerPrice = beerPrice * props.amount;
+
+  function calcNewPrice() {
+    const newPrice = props.totalPrice + totalBeerPrice;
+    props.setTotalPrice(newPrice);
+  }
 
   return (
     <div>
@@ -40,10 +43,8 @@ export default function CartItem(props) {
           </div>
 
           <div className="under_col">
-
-            <h2 className="small_title price">00 KR.</h2>
+            <h2 className="small_title price">{totalBeerPrice} KR.</h2>
             <OverviewButton setCartItems={props.setCartItems} {...props} key={props.id} />
-
           </div>
         </div>
       </div>

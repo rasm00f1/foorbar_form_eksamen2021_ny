@@ -5,7 +5,6 @@ import "./OverviewOrder.css";
 import { useState, useEffect } from "react";
 import useInterval from "./hooks/useInterval";
 import TapList from "./TapList";
-import DataFlow from "./DataFlow";
 import CartOverview from "./CartOverview";
 import { Router, Link } from "@reach/router";
 
@@ -101,21 +100,20 @@ function App() {
   return (
     <div className="App">
       <div className="logo">
-        <img src={"./img/foobar_logo.svg"} alt="foobarlogo" />
+        <Link to="/">
+          <img src={"./img/foobar_logo.svg"} alt="foobarlogo" />
+        </Link>
       </div>
-      <TapList
-        prices={prices}
-        taps={taps}
-        beerTypesList={beerTypesList}
-        addToCart={addToCart}
-      />
+
       <button onClick={post}>POST</button>
-      <DataFlow queue={queue} serving={serving} />
-      <CartOverview
-        cartItems={cartItems}
-        setCartItems={setCartItems}
-        prices={prices}
-      />
+      <Link to="/cart">
+        <button>DATA</button>
+      </Link>
+
+      <Router>
+        <TapList path="/" queue={queue} serving={serving} prices={prices} taps={taps} beerTypesList={beerTypesList} addToCart={addToCart} />
+        <CartOverview path="/cart" cartItems={cartItems} setCartItems={setCartItems} prices={prices} />
+      </Router>
     </div>
   );
 }
