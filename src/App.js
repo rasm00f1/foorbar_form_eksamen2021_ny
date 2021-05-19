@@ -16,6 +16,7 @@ function App() {
   const [servingData, setServingData] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [prices, setPrices] = useState([]);
+  // console.log(prices);
 
   useEffect(get, []);
   useInterval(get, 5000);
@@ -110,7 +111,11 @@ function App() {
       />
       <button onClick={post}>POST</button>
       <DataFlow queue={queue} serving={serving} />
-      <CartOverview cartItems={cartItems} setCartItems={setCartItems} />
+      <CartOverview
+        cartItems={cartItems}
+        setCartItems={setCartItems}
+        prices={prices}
+      />
     </div>
   );
 }
