@@ -111,7 +111,7 @@ function App() {
       </Link>
 
       <Router>
-        <TapList path="/" queue={queue} serving={serving} prices={prices} taps={taps} beerTypesList={beerTypesList} addToCart={addToCart} />
+        <TapList path="/" queue={queue} serving={serving} prices={prices} taps={taps} beerTypesList={beerTypesList} cartItems={cartItems} addToCart={addToCart} />
         <CartOverview path="/cart" cartItems={cartItems} setCartItems={setCartItems} prices={prices} />
       </Router>
     </div>
