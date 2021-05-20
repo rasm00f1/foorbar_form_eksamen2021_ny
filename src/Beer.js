@@ -85,7 +85,7 @@ export default function Beer(props) {
             </Disclosure.Panel>
           </Disclosure>
 
-          <AddButton setIsOpen={setIsOpen} addToCart={props.addToCart} {...props} />
+          <AddButton calcTotalPrice={props.calcTotalPrice} setIsOpen={setIsOpen} addToCart={props.addToCart} {...props} />
         </div>
       </Dialog>
     </article>

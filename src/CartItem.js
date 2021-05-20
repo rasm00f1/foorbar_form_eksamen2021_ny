@@ -1,6 +1,4 @@
 import OverviewButton from "./OverviewButton";
-import { useEffect } from "react";
-
 export default function CartItem(props) {
   let beerimage = "";
   //ForEach beertype in the list check if beer == beerType.name
@@ -9,10 +7,6 @@ export default function CartItem(props) {
       beerimage = beerType.label;
     }
   });
-
-  useEffect(() => {
-    calcNewPrice();
-  }, []);
   let beerPrice = 0;
   props.prices.map((price) => {
     if (props.beer === price.beername) {
@@ -21,11 +15,6 @@ export default function CartItem(props) {
     return beerPrice;
   });
   let totalBeerPrice = beerPrice * props.amount;
-
-  function calcNewPrice() {
-    const newPrice = props.totalPrice + totalBeerPrice;
-    props.setTotalPrice(newPrice);
-  }
 
   return (
     <div>

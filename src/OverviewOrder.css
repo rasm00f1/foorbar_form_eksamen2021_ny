@@ -9,6 +9,12 @@
 }
 
 .overview_wrapper {
+  height: 76vh;
+
+  width: 100%;
+}
+
+.overview_box {
   background-color: #232323;
   border: 5px solid #16acda;
   border-radius: 5px;
@@ -41,6 +47,11 @@
   height: 120px;
   min-width: 300px;
 }
+.beer_container_prev {
+  display: flex;
+  min-width: 300px;
+  justify-content: space-between;
+}
 
 .title_container {
   flex-grow: 4;
@@ -58,7 +69,12 @@
   text-decoration: underline;
   position: relative;
 }
+
 .small_title {
+  font-size: 0.7rem;
+}
+
+.small_title_prev {
   font-size: 0.7rem;
 }
 /* CHILD */
@@ -75,6 +91,9 @@
 
 @media only screen and (min-width: 550px) {
   .small_title {
+    font-size: 1rem;
+  }
+  .small_title_prev {
     font-size: 1rem;
   }
   .beer_container {
