@@ -15,12 +15,14 @@ function App() {
   const [servingData, setServingData] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [prices, setPrices] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
   // console.log(prices);
 
   useEffect(get, []);
   useInterval(get, 5000);
   useEffect(getBeerTypes, []);
   useEffect(getPrices, []);
+  useInterval(calcTotalPrice, 100);
 
   function get() {
     fetch("https://foobar-jearasfix.herokuapp.com/")
@@ -92,6 +94,18 @@ function App() {
     }
   }
 
+  function calcTotalPrice() {
+    let totalPricePrev = 0;
+    cartItems.forEach((item) => {
+      prices.forEach((price) => {
+        if (price.beername === item.beer) {
+          totalPricePrev += item.amount * price.price;
+        }
+      });
+    });
+    setTotalPrice(totalPricePrev);
+  }
+
   const beerTypesList = [...beerTypes];
   const taps = [...tapData];
   const queue = [...queueData];
@@ -104,15 +118,11 @@ function App() {
           <img src={"./img/foobar_logo.svg"} alt="foobarlogo" />
         </Link>
       </div>
-
       <button onClick={post}>POST</button>
-      <Link to="/cart">
-        <button>DATA</button>
-      </Link>
 
       <Router>
-        <TapList path="/" queue={queue} serving={serving} prices={prices} taps={taps} beerTypesList={beerTypesList} cartItems={cartItems} addToCart={addToCart} />
-        <CartOverview path="/cart" cartItems={cartItems} setCartItems={setCartItems} prices={prices} />
+        <TapList path="/" queue={queue} serving={serving} prices={prices} taps={taps} beerTypesList={beerTypesList} cartItems={cartItems} addToCart={addToCart} totalPrice={totalPrice} calcTotalPrice={calcTotalPrice} />
+        <CartOverview path="/cart" cartItems={cartItems} totalPrice={totalPrice} setCartItems={setCartItems} prices={prices} />
       </Router>
     </div>
   );

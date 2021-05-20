@@ -57,8 +57,11 @@ export default function AddButton(props) {
   function addToCartForward() {
     console.log(queueCartItems[0]);
     props.setIsOpen(false);
+
     props.addToCart(queueCartItems[0]);
+    props.calcTotalPrice();
   }
+
   return (
     <div>
       <div style={buttonContainer}>
