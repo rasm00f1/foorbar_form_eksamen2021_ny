@@ -9,6 +9,7 @@ import CartOverview from "./CartOverview";
 import { Router, Link } from "@reach/router";
 
 function App() {
+  //Create stateful variables
   const [tapData, setTapData] = useState([]);
   const [beerTypes, setBeerTypes] = useState([]);
   const [queueData, setQueueData] = useState([]);
@@ -16,14 +17,16 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const [prices, setPrices] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
-  // console.log(prices);
 
+  //Call function that need to be called once, and some with an interval
   useEffect(get, []);
   useInterval(get, 5000);
   useEffect(getBeerTypes, []);
   useEffect(getPrices, []);
   useInterval(calcTotalPrice, 100);
 
+  //Fetching main data from database and call functions
+  //Called every 5s
   function get() {
     fetch("https://foobar-jearasfix.herokuapp.com/")
       .then((res) => res.json())
@@ -34,6 +37,7 @@ function App() {
       });
   }
 
+  //Fetch prices data
   function getPrices() {
     fetch("./beerprice.json")
       .then((res) => res.json())
@@ -42,6 +46,7 @@ function App() {
       });
   }
 
+  //Post order to database
   function post() {
     const data = cartItems.map((item) => {
       return { name: item.beer, amount: item.amount };
@@ -58,6 +63,7 @@ function App() {
     setCartItems([]);
   }
 
+  //Fectches beertype data, to be used and set the stateful variable
   function getBeerTypes() {
     fetch("https://foobar-jearasfix.herokuapp.com/beertypes")
       .then((res) => res.json())
@@ -66,14 +72,17 @@ function App() {
       });
   }
 
+  //Sets queue data every 5s
   function checkQueue(props) {
     setQueueData(props.queue);
   }
 
+  //Sets serving data every 5s
   function checkServing(props) {
     setServingData(props.serving);
   }
 
+  //Sets cart cartitems to current items chosen in singleview
   function addToCart(payload) {
     const inCart = cartItems.findIndex((item) => item.id === payload.id);
     if (inCart === -1) {
@@ -94,6 +103,8 @@ function App() {
     }
   }
 
+  //Calculates the subtotal price of beers in cart, sets price to this amount
+  //Get called every .1s
   function calcTotalPrice() {
     let totalPricePrev = 0;
     cartItems.forEach((item) => {
@@ -106,6 +117,7 @@ function App() {
     setTotalPrice(totalPricePrev);
   }
 
+  //Copies data to be updated every 5s, so it dosen't create infinite rerendering
   const beerTypesList = [...beerTypes];
   const taps = [...tapData];
   const queue = [...queueData];
@@ -120,7 +132,9 @@ function App() {
       </div>
       <button onClick={post}>POST</button>
 
+      {/* Wrap components in Router to be able to only render 1 component at a time */}
       <Router>
+        {/* Main view and Cartoverview, gets send the props it needs for functionality */}
         <TapList path="/" queue={queue} serving={serving} prices={prices} taps={taps} beerTypesList={beerTypesList} cartItems={cartItems} addToCart={addToCart} totalPrice={totalPrice} calcTotalPrice={calcTotalPrice} />
         <CartOverview path="/cart" cartItems={cartItems} totalPrice={totalPrice} setCartItems={setCartItems} prices={prices} />
       </Router>

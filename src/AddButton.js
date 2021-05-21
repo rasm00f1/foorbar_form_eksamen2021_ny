@@ -1,5 +1,6 @@
 import { useState } from "react";
 export default function AddButton(props) {
+  //inline styling for the button container
   const buttonContainer = {
     display: "flex",
     boxShadow: "4px 4px 0px #896BFF",
@@ -9,19 +10,23 @@ export default function AddButton(props) {
     marginTop: "20px",
   };
 
+  //Create stateful variables needed to save the amount of cart items before they get send to cartItems varible
   const [amount, setAmount] = useState(0);
   const [queueCartItems, setQueueCartItems] = useState([]);
 
+  //increaes queued beer amount on + click
   function incClick() {
     setAmount((prevAmount) => prevAmount + 1);
     addToCartQueue(props);
   }
 
+  //decreaes queued beer amount on - click
   function decClick() {
     setAmount((prevAmount) => prevAmount - 1);
     removeFromCartQueue(props);
   }
 
+  //Add an item in queuedCartItems stateful variable, and sets them
   function addToCartQueue(payload) {
     const inCart = queueCartItems.findIndex((item) => item.id === payload.id);
     if (inCart === -1) {
@@ -41,6 +46,7 @@ export default function AddButton(props) {
     }
   }
 
+  //Removes an item in queuedCartItems stateful variable, and sets them
   function removeFromCartQueue(payload) {
     let nextCart = queueCartItems.map((item) => {
       if (item.id === payload.id) {
@@ -54,6 +60,7 @@ export default function AddButton(props) {
     setQueueCartItems(nextCart);
   }
 
+  //Called when Add button clicked, adds the curren queuedCartItems to cartItems
   function addToCartForward() {
     console.log(queueCartItems[0]);
     props.setIsOpen(false);
