@@ -1,3 +1,8 @@
+:root {
+  --primary-font: "a_astro_space";
+  --secondary-font: "petrichor_sublimey";
+  --paragraph-font: "roboto";
+}
 @font-face {
   font-family: "petrichor_sublimey";
   src: url("./fonts/petrichorsublimey-l3zdw-webfont.woff2") format("woff2"),

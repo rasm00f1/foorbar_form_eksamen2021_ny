@@ -1,0 +1,78 @@
+.form {
+  position: relative;
+  border: var(--border-color);
+  border-radius: var(--border-radius);
+  margin: 20px;
+}
+
+.back_button {
+  all: unset;
+  margin: 10px 0 0 10px;
+}
+
+.link_parent {
+  display: flex;
+  align-items: center;
+}
+
+.back_button a {
+  text-decoration: none;
+  color: #ffffff;
+  font-family: var(--secondary-font);
+}
+
+.back_button a:hover {
+  text-decoration: underline;
+}
+
+.form_container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 0;
+}
+
+.form_container legend {
+  font-family: var(--primary-font);
+  font-size: 2rem;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.form_container h2 {
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+
+.form_container p {
+  font-family: var(--secondary-font);
+}
+
+.subtotal,
+.terms {
+  color: #16acda;
+}
+.form_container .totalPrice {
+  color: white;
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
+.form_label {
+  font-family: var(--primary-font);
+}
+
+.form_container input {
+  border: var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  padding: 0.75rem;
+  margin-bottom: 0.4rem;
+  background-color: var(--input-background-color);
+}
+
+.form_container ::placeholder {
+  font-family: var(--paragraph-font);
+  color: var(--input-placeholder-bgcolor);
+}
