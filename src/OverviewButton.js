@@ -7,57 +7,65 @@ export default function OverviewButton(props) {
     width: "8rem",
     justifyContent: "space-between",
   };
+  console.log(props);
 
-  const [amount, setAmount] = useState(0);
-  const [queueCartItems, setQueueCartItems] = useState([]);
+  const [amount, setAmount] = useState(props.amount);
 
   function incClick() {
     setAmount((prevAmount) => prevAmount + 1);
-    addToCartQueue(props);
+    addToCart(props);
   }
 
   function decClick() {
+    console.log(amount);
     setAmount((prevAmount) => prevAmount - 1);
-    removeFromCartQueue(props);
+    removeFromCart(props);
   }
 
-  function addToCartQueue(payload) {
-    const inCart = queueCartItems.findIndex((item) => item.id === payload.id);
+  function addToCart(payload) {
+    const inCart = props.cartItems.findIndex((item) => item.id === payload.id);
     if (inCart === -1) {
       //add
       const nextPayload = { ...payload };
       nextPayload.amount = 1;
-      setQueueCartItems((prevState) => [...prevState, nextPayload]);
+      props.setCartItems((prevState) => [...prevState, nextPayload]);
     } else {
       //it exists, modify amount
-      const nextCart = queueCartItems.map((item) => {
+      const nextCart = props.cartItems.map((item) => {
         if (item.id === payload.id) {
           item.amount += 1;
         }
         return item;
       });
-      setQueueCartItems(nextCart);
+      props.setCartItems(nextCart);
     }
   }
 
-  function removeFromCartQueue(payload) {
-    let nextCart = queueCartItems.map((item) => {
+  function removeFromCart(payload) {
+    const nextCart = props.cartItems.map((item) => {
       if (item.id === payload.id) {
         item.amount -= 1;
-        if (item.amount === 0) {
-          console.log("No beers");
-        }
       }
       return item;
     });
-    setQueueCartItems(nextCart);
+    props.setCartItems(nextCart);
+    removedItemArray(payload);
   }
 
-  function addToCartForward() {
-    console.log(queueCartItems[0]);
-    props.setIsOpen(false);
-    props.addToCart(queueCartItems[0]);
+  function removedItemArray(payload) {
+    if (payload.amount === 1) {
+      console.log("no more beers");
+      const newArray = props.cartItems.filter((item) => {
+        if (item.beer === payload.beer) {
+          return false;
+        } else return true;
+      });
+      props.setCartItems(newArray);
+    } else {
+      console.log("more beers");
+    }
   }
+
   return (
     <div>
       <div style={buttonContainer}>

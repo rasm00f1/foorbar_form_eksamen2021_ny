@@ -84,7 +84,7 @@ function App() {
 
   //Sets cart cartitems to current items chosen in singleview
   function addToCart(payload) {
-    const inCart = cartItems.findIndex((item) => item.id === payload.id);
+    const inCart = cartItems.findIndex((item) => item.beer === payload.beer);
     if (inCart === -1) {
       //add
       console.log(payload);
@@ -94,7 +94,7 @@ function App() {
     } else {
       //it exists, modify amount
       const nextCart = cartItems.map((item) => {
-        if (item.id === payload.id) {
+        if (item.beer === payload.beer) {
           item.amount += payload.amount;
         }
         return item;
