@@ -1,9 +1,39 @@
+:root {
+  /* BORDER COLOR */
+  --border-color: 4px solid #16acda;
+  --border-radius: 10px;
+  --border-shadow: 1px 1px 10px #47c4eb8a;
+
+  /* BUTTONS */
+  --button-blue-color: #76deff;
+  --button-blue-shadow: #1688ac 10px 7px 0px;
+  --button-text-color: #ffffff;
+  --button-text-shadow: 1px 1px 0px #896bff;
+
+  /* INPUT FIELD */
+  --input-placeholder-bgcolor: #676767;
+  --input-background-color: #343434;
+}
+
+.button_blue {
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: var(--primary-font);
+  color: var(--button-text-color);
+  text-shadow: var(--button-text-shadow);
+  background-color: var(--button-blue-color);
+  box-shadow: var(--button-blue-shadow);
+  border: 0;
+  border-radius: var(--border-radius);
+  padding: 15px 10px;
+}
+
 .App {
   background-image: url("./night_sky_background.svg");
   background-size: cover;
 
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   color: white;
 }
 

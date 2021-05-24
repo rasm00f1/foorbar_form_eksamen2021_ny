@@ -1,11 +1,13 @@
 import "./App.css";
 import "./Fonts.css";
 import "./OverviewOrder.css";
+import "./Form.css";
 
 import { useState, useEffect } from "react";
 import useInterval from "./hooks/useInterval";
 import TapList from "./TapList";
 import CartOverview from "./CartOverview";
+import PaymentForm from "./PaymentForm";
 import { Router, Link } from "@reach/router";
 
 function App() {
@@ -131,12 +133,33 @@ function App() {
         </Link>
       </div>
       <button onClick={post}>POST</button>
+      <Link to="/payment">
+        <button>PaymentForm</button>
+      </Link>
 
       {/* Wrap components in Router to be able to only render 1 component at a time */}
       <Router>
         {/* Main view and Cartoverview, gets send the props it needs for functionality */}
-        <TapList path="/" queue={queue} serving={serving} prices={prices} taps={taps} beerTypesList={beerTypesList} cartItems={cartItems} addToCart={addToCart} totalPrice={totalPrice} calcTotalPrice={calcTotalPrice} />
-        <CartOverview path="/cart" cartItems={cartItems} totalPrice={totalPrice} setCartItems={setCartItems} prices={prices} />
+        <TapList
+          path="/"
+          queue={queue}
+          serving={serving}
+          prices={prices}
+          taps={taps}
+          beerTypesList={beerTypesList}
+          cartItems={cartItems}
+          addToCart={addToCart}
+          totalPrice={totalPrice}
+          calcTotalPrice={calcTotalPrice}
+        />
+        <CartOverview
+          path="/cart"
+          cartItems={cartItems}
+          totalPrice={totalPrice}
+          setCartItems={setCartItems}
+          prices={prices}
+        />
+        <PaymentForm path="/payment" totalPrice={totalPrice} />
       </Router>
     </div>
   );
