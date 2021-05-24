@@ -15,7 +15,7 @@ export default function CartOverview(props) {
         {props.cartItems.map((item) => (
           // Creating a new components for the item
 
-          <CartItem {...item} key={item.id} prices={props.prices} totalPrice={props.totalPrice} />
+          <CartItem {...item} cartItems={props.cartItems} setCartItems={props.setCartItems} key={item.id} prices={props.prices} totalPrice={props.totalPrice} />
         ))}
         <div className="subtotal">
           <h3>Subtotal {props.totalPrice} KR.</h3>

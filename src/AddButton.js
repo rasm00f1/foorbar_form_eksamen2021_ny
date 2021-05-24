@@ -28,7 +28,7 @@ export default function AddButton(props) {
 
   //Add an item in queuedCartItems stateful variable, and sets them
   function addToCartQueue(payload) {
-    const inCart = queueCartItems.findIndex((item) => item.id === payload.id);
+    const inCart = queueCartItems.findIndex((item) => item.beer === payload.beer);
     if (inCart === -1) {
       //add
       const nextPayload = { ...payload };
@@ -37,7 +37,7 @@ export default function AddButton(props) {
     } else {
       //it exists, modify amount
       const nextCart = queueCartItems.map((item) => {
-        if (item.id === payload.id) {
+        if (item.beer === payload.beer) {
           item.amount += 1;
         }
         return item;
