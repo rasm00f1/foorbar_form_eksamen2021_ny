@@ -30,6 +30,9 @@
   flex-direction: column;
   padding: 20px;
   border: 0;
+
+  max-width: 500px;
+  margin: auto;
 }
 
 .form_container legend {
@@ -75,4 +78,32 @@
 .form_container ::placeholder {
   font-family: var(--paragraph-font);
   color: var(--input-placeholder-bgcolor);
+}
+
+/* SUCCES */
+.success {
+  border: var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.check_icon {
+  width: 20%;
+}
+
+.success_button {
+  margin: 10px;
+}
+
+@media screen and (min-width: 600px) {
+  .form,
+  .success {
+    max-width: 700px;
+    margin: auto;
+  }
 }
