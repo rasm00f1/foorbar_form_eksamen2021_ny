@@ -132,7 +132,6 @@ function App() {
           <img src={"./img/foobar_logo.svg"} alt="foobarlogo" />
         </Link>
       </div>
-      <button onClick={post}>POST</button>
       <Link to="/payment">
         <button>PaymentForm</button>
       </Link>
@@ -159,7 +158,7 @@ function App() {
           setCartItems={setCartItems}
           prices={prices}
         />
-        <PaymentForm path="/payment" totalPrice={totalPrice} />
+        <PaymentForm path="/payment" totalPrice={totalPrice} post={post} />
       </Router>
     </div>
   );
