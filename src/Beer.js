@@ -57,18 +57,21 @@ export default function Beer(props) {
           <p className="close_btn" onClick={() => setIsOpen(false)}>
             X
           </p>
-          <h3>{beerPrice}</h3>
+
           <Dialog.Title>{props.beer}</Dialog.Title>
-          <img
-            style={{
-              maxWidth: "250px",
-              boxShadow: "10px 7px 0px #896BFF",
-              backgroundColor: "#C4C4C4",
-              borderRadius: "10px",
-            }}
-            src={"./img/" + beerImg}
-            alt="img"
-          />
+          <figure style={{ position: "relative" }}>
+            <img
+              style={{
+                maxWidth: "250px",
+                boxShadow: "10px 7px 0px #896BFF",
+                backgroundColor: "#C4C4C4",
+                borderRadius: "10px",
+              }}
+              src={"./img/" + beerImg}
+              alt="img"
+            />
+            <p className="price">{beerPrice},-</p>
+          </figure>
           {/* Disclosures in modal/dialog that holds the beertypelist data */}
           <Disclosure>
             <Disclosure.Button className="disclosure_button">AROMA</Disclosure.Button>
