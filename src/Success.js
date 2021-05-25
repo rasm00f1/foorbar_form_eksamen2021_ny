@@ -1,3 +1,5 @@
+import { Link } from "@reach/router";
+
 export default function Success() {
   return (
     <section className="success">
@@ -8,7 +10,10 @@ export default function Success() {
       </p>
       <img src="./icons/check-circle.svg" alt="" className="check_icon" />
       {/* HOW TO BREAK? */}
-      <button className="button_blue success_button">Back to Menu</button>
+
+      <button className="button_blue success_button">
+        <Link to="/">Back to Menu</Link>
+      </button>
     </section>
   );
 }
