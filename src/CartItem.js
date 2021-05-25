@@ -32,8 +32,8 @@ export default function CartItem(props) {
   return (
     <div>
       <div className="beer_container">
-        <button onClick={removedThisArray} className="close">
-          Close
+        <button onClick={removedThisArray} className="close_btn close">
+          X
         </button>
 
         <div className="image_container">
@@ -48,7 +48,11 @@ export default function CartItem(props) {
 
           <div className="under_col">
             <h2 className="small_title price">{totalBeerPrice} KR.</h2>
-            <OverviewButton setCartItems={props.setCartItems} {...props} key={props.id} />
+            <OverviewButton
+              setCartItems={props.setCartItems}
+              {...props}
+              key={props.id}
+            />
           </div>
         </div>
       </div>

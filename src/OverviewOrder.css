@@ -24,16 +24,23 @@
   flex-direction: column;
   align-items: center;
 }
-.backMenu {
-  position: absolute;
-  left: 0;
-  top: 0;
+
+.overview_back {
+  align-self: flex-start;
 }
 
 .close {
   position: absolute;
   right: 0;
   top: 0;
+
+  border: none;
+  width: 35px;
+  height: 35px;
+  background-color: #fffdfd;
+  text-shadow: var(--button-text-shadow);
+  color: #ff9a61;
+  font-size: 1rem;
 }
 
 /* PARENT */
@@ -44,6 +51,7 @@
   align-items: center;
   flex-wrap: nowrap;
   background-color: #49494d;
+  border-radius: var(--border-radius);
   height: 120px;
   min-width: 300px;
 }
