@@ -80,7 +80,7 @@ export default function AddButton(props) {
           +
         </button>
       </div>
-      <button disabled={amount === 0} onClick={addToCartForward}>
+      <button className="button_blue" disabled={amount === 0} onClick={addToCartForward}>
         Add
       </button>
     </div>
