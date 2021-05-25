@@ -54,8 +54,7 @@ export default function Beer(props) {
         {/* Background overlay for each modal/dialog */}
         <Dialog.Overlay className="modal" />
         <div className="dialog_center">
-          
-          <p style={{ cursor: "pointer" }} onClick={() => setIsOpen(false)}>
+          <p className="close_btn" onClick={() => setIsOpen(false)}>
             X
           </p>
           <h3>{beerPrice}</h3>

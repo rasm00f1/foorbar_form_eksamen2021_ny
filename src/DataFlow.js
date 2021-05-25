@@ -20,7 +20,7 @@ export default function DataFlow(props) {
           ))}
           <h2>SUBTOTAL: {props.totalPrice} DKK</h2>
           <Link to="/cart">
-            <button>CHECKOUT</button>
+            <button className="button_blue">CHECKOUT</button>
           </Link>
         </div>
       </section>

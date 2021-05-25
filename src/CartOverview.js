@@ -20,7 +20,7 @@ export default function CartOverview(props) {
         <div className="subtotal">
           <h3>Subtotal {props.totalPrice} KR.</h3>
         </div>
-        <button>TO CHECKOUT</button>
+        <button className="button_blue">TO CHECKOUT</button>
       </div>
     </section>
   );

@@ -6,7 +6,7 @@
 
   /* BUTTONS */
   --button-blue-color: #76deff;
-  --button-blue-shadow: #1688ac 10px 7px 0px;
+  --button-blue-shadow: #1688ac 7px 7px 0px;
   --button-text-color: #ffffff;
   --button-text-shadow: 1px 1px 0px #896bff;
 
@@ -28,12 +28,31 @@
   padding: 15px 10px;
 }
 
+.close_btn {
+  cursor: pointer;
+  position: absolute;
+
+  right: 0.5rem;
+  top: -1.5rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--button-blue-color);
+  text-shadow: var(--button-text-shadow);
+  box-shadow: #1688ac 3px 3px 0px;
+  border-radius: 50%;
+
+  font-family: "a_astro_space";
+  font-size: 2rem;
+}
+
 .App {
   background-image: url("./night_sky_background.svg");
   background-size: cover;
 
   width: 100vw;
-  height: 100vh;
   color: white;
 }
 
@@ -84,6 +103,7 @@ article img {
 }
 
 .dialog_center {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
