@@ -10,7 +10,7 @@ export default function CartOverview(props) {
   return (
     <section className="overview_wrapper">
       <div className="overview_box">
-        <button className="back_button">
+        <button className="back_button overview_back">
           <Link to="/" className="link_parent">
             <img src="./icons/left_arrow.svg" alt="" />
             <span>back to overview</span>

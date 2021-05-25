@@ -117,7 +117,11 @@ export default function PaymentForm(props) {
             by clicking confirm you agree to foobars
             <span className="terms"> terms and conditions</span>
           </p>
-          <button className="button_blue" onClick={props.post}>
+          <button
+            className="button_blue"
+            onClick={props.post}
+            disabled={!isValid}
+          >
             Confirm & Pay
           </button>
         </fieldset>
