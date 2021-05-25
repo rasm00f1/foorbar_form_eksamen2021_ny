@@ -8,6 +8,7 @@ export default function AddButton(props) {
     width: "8rem",
     justifyContent: "space-between",
     marginTop: "20px",
+    marginBottom: "20px",
   };
 
   //Create stateful variables needed to save the amount of cart items before they get send to cartItems varible
@@ -70,7 +71,7 @@ export default function AddButton(props) {
   }
 
   return (
-    <div>
+    <div style={{ display: "flex", flexDirection: "column" }}>
       <div style={buttonContainer}>
         <button disabled={amount === 0} className="indexButton" onClick={decClick} style={{ borderRadius: "4px 0px 0px 4px" }}>
           -

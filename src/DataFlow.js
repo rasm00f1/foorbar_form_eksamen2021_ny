@@ -14,13 +14,15 @@ export default function DataFlow(props) {
       </section>
       <section className="data_section">
         <h2>CART</h2>
-        <div className="data_container background">
+        <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", alignItems: "center" }} className="data_container background">
           {props.cartItems.map((item) => (
             <CartItemPreview {...item} key={item.id} prices={props.prices} totalPrice={props.totalPrice} />
           ))}
           <h2>SUBTOTAL: {props.totalPrice} DKK</h2>
           <Link to="/cart">
-            <button className="button_blue">CHECKOUT</button>
+            <button style={{ marginBottom: "10px", width: "230px" }} className="button_blue">
+              CHECKOUT
+            </button>
           </Link>
         </div>
       </section>
