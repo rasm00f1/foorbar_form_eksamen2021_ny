@@ -47,12 +47,10 @@ export default function CartItem(props) {
           </div>
 
           <div className="under_col">
-            <h2 className="small_title price">{totalBeerPrice} KR.</h2>
-            <OverviewButton
-              setCartItems={props.setCartItems}
-              {...props}
-              key={props.id}
-            />
+
+            <h2 className="small_title">{totalBeerPrice} KR.</h2>
+            <OverviewButton setCartItems={props.setCartItems} {...props} key={props.id} />
+
           </div>
         </div>
       </div>
