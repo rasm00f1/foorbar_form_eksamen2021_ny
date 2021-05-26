@@ -140,7 +140,7 @@ export default function PaymentForm(props) {
         </fieldset>
       </form>
 
-      <Success />
+      <Success orderId={props.orderId} />
     </ReactCardFlip>
   );
 }

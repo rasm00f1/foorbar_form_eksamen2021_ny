@@ -1,11 +1,12 @@
 import { Link } from "@reach/router";
 
-export default function Success() {
+export default function Success(props) {
   return (
     <section className="success">
       <h1>Payment Successful!</h1>
+
       <p className="order_p">
-        Your order number is <span></span> follow your order by going back to
+        Your order number is <span>#{props.orderId}</span> follow your order by going back to
         menu.
       </p>
       <img src="./icons/check-circle.svg" alt="" className="check_icon" />

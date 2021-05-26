@@ -71,7 +71,6 @@
   background-image: url("./night_sky_background.svg");
   background-size: cover;
 
-  width: 100vw;
   min-height: 100vh;
   color: white;
 }
