@@ -30,10 +30,10 @@ export default function CartItem(props) {
   }
 
   return (
-    <div className="beer_container">
-      <button onClick={removedThisArray} className="close_btn close">
-        X
-      </button>
+      <div className="beer_container">
+        <button onClick={removedThisArray} className="close">
+          X
+        </button>
 
       <div className="image_container">
         <img src={"./img/" + beerimage} alt="" />
@@ -53,6 +53,7 @@ export default function CartItem(props) {
             {...props}
             key={props.id}
           />
+
         </div>
       </div>
     </div>

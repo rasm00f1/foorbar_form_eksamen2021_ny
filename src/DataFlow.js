@@ -20,7 +20,7 @@ export default function DataFlow(props) {
           ))}
           <h2>SUBTOTAL: {props.totalPrice} DKK</h2>
           <Link to="/cart">
-            <button style={{ marginBottom: "10px", width: "230px" }} className="button_blue">
+            <button disabled={props.cartItems.length === 0} style={props.cartItems.length === 0 ? { cursor: "auto", backgroundColor: "grey", boxShadow: "4px 4px 0px black", opacity: "0.5" } : {}} className="button_blue">
               CHECKOUT
             </button>
           </Link>
