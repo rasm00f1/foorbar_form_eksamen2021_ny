@@ -30,26 +30,30 @@ export default function CartItem(props) {
   }
 
   return (
-    <div>
       <div className="beer_container">
         <button onClick={removedThisArray} className="close">
           X
         </button>
 
-        <div className="image_container">
-          <img src={"./img/" + beerimage} alt="" />
+      <div className="image_container">
+        <img src={"./img/" + beerimage} alt="" />
+      </div>
+      <div className="title_container">
+        <div className="beer_header">
+          <h2 className="small_title">
+            {props.amount} X {props.beer}
+          </h2>
         </div>
-        <div className="title_container">
-          <div className="beer_header">
-            <h2 className="small_title">
-              {props.amount} X {props.beer}
-            </h2>
-          </div>
 
-          <div className="under_col">
-            <h2 className="small_title">{totalBeerPrice} KR.</h2>
-            <OverviewButton setCartItems={props.setCartItems} {...props} key={props.id} />
-          </div>
+        <div className="under_col">
+          <h2 className="small_title">{totalBeerPrice} KR.</h2>
+          <OverviewButton
+            style={{ marginRight: "10px" }}
+            setCartItems={props.setCartItems}
+            {...props}
+            key={props.id}
+          />
+
         </div>
       </div>
     </div>

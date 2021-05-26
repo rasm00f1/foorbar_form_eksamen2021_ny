@@ -67,13 +67,22 @@ export default function OverviewButton(props) {
   }
 
   return (
-    <div>
+    <div style={{ marginRight: "10px" }}>
       <div style={buttonContainer}>
-        <button disabled={amount === 0} className="indexButton" onClick={decClick} style={{ borderRadius: "4px 0px 0px 4px" }}>
+        <button
+          disabled={amount === 0}
+          className="indexButton"
+          onClick={decClick}
+          style={{ borderRadius: "4px 0px 0px 4px" }}
+        >
           -
         </button>
         <p>{props.amount}</p>
-        <button className="indexButton" onClick={incClick} style={{ borderRadius: "0px 4px 4px 0px" }}>
+        <button
+          className="indexButton"
+          onClick={incClick}
+          style={{ borderRadius: "0px 4px 4px 0px" }}
+        >
           +
         </button>
       </div>
