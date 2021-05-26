@@ -30,17 +30,25 @@
 }
 
 .close {
-  position: absolute;
-  right: 0;
-  top: 0;
-
-  border: none;
-  width: 35px;
-  height: 35px;
-  background-color: #fffdfd;
-  text-shadow: var(--button-text-shadow);
+  border-style: none;
   color: #ff9a61;
-  font-size: 1rem;
+
+  cursor: pointer;
+  position: absolute;
+  z-index: 10;
+
+  right: -0.5rem;
+  top: -0.5rem;
+  padding: 8px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  text-shadow: var(--button-text-shadow);
+  border-radius: 50%;
+
+  font-family: "a_astro_space";
+  font-size: 1.5rem;
 }
 
 /* PARENT */
