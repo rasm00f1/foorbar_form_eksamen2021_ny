@@ -4,7 +4,7 @@ export default function Success() {
   return (
     <section className="success">
       <h1>Payment Successful!</h1>
-      <p>
+      <p className="order_p">
         Your order number is <span></span> follow your order by going back to
         menu.
       </p>
