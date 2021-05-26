@@ -26,6 +26,7 @@
   border: 0;
   border-radius: var(--border-radius);
   padding: 15px 10px;
+  margin-bottom: 10px;
 }
 
 .close_btn {
@@ -71,6 +72,7 @@
   background-size: cover;
 
   width: 100vw;
+  min-height: 100vh;
   color: white;
 }
 
@@ -78,10 +80,11 @@
   display: flex;
   justify-content: center;
   padding-top: 2rem;
+  padding-bottom: 1rem;
 }
 
 .logo img {
-  width: 200px;
+  width: 250px;
 }
 
 .row_divider {
