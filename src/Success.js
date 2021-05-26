@@ -4,8 +4,10 @@ export default function Success(props) {
   return (
     <section className="success">
       <h1>Payment Successful!</h1>
-      <p>
-        Your order ID is <span>#{props.orderId}</span> follow your order by going back to menu.
+
+      <p className="order_p">
+        Your order number is <span>#{props.orderId}</span> follow your order by going back to
+        menu.
       </p>
       <img src="./icons/check-circle.svg" alt="" className="check_icon" />
       {/* HOW TO BREAK? */}

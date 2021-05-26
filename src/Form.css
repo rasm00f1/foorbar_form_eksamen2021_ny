@@ -104,7 +104,13 @@
   flex-direction: column;
 }
 
-.success p {
+.order_p {
+  font-family: var(--secondary-font);
+}
+
+.order_p span {
+  font-weight: bolder;
+  text-decoration: underline;
 }
 
 .check_icon {
