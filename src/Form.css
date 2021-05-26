@@ -104,11 +104,18 @@
   flex-direction: column;
 }
 
+.success p {
+}
+
 .check_icon {
   width: 20%;
 }
 
-.success_button {
+.success_button a {
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  font-size: 1.4rem;
   margin: 10px;
 }
 
