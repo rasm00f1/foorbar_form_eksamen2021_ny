@@ -9,13 +9,13 @@ export default function CartOverview(props) {
 
   return (
     <section className="overview_wrapper">
+      <button className="back_button overview_back">
+        <Link to="/" className="link_parent">
+          <img src="./icons/left_arrow.svg" alt="" />
+          <span>back to overview</span>
+        </Link>
+      </button>
       <div className="overview_box">
-        <button className="back_button overview_back">
-          <Link to="/" className="link_parent">
-            <img src="./icons/left_arrow.svg" alt="" />
-            <span>back to overview</span>
-          </Link>
-        </button>
         <h1 className="overview_h1">Overview Order</h1>
         {/* Mapping over CartItems */}
         {props.cartItems.map((item) => (
@@ -30,11 +30,11 @@ export default function CartOverview(props) {
             totalPrice={props.totalPrice}
           />
         ))}
-        <div className="subtotal">
+        <div className="overview_subtotal">
           <h3>Subtotal {props.totalPrice} KR.</h3>
         </div>
 
-        <button className="button_blue">
+        <button className="button_blue payment_button">
           <Link to="/payment" className="link_parent">
             TO PAYMENT
           </Link>
