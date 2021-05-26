@@ -11,7 +11,7 @@ export default function TapList(props) {
         ))}
       </div>
       {/* Components that holds Serving, Cart and Queue components, gets send the props it needs to show */}
-      <DataFlow queue={props.queue} serving={props.serving} beerTypesList={props.beerTypesList} cartItems={props.cartItems} prices={props.prices} totalPrice={props.totalPrice} setTotalPrice={props.setTotalPrice} />
+      <DataFlow orderId={props.orderId} queue={props.queue} serving={props.serving} beerTypesList={props.beerTypesList} cartItems={props.cartItems} prices={props.prices} totalPrice={props.totalPrice} setTotalPrice={props.setTotalPrice} />
     </main>
   );
 }

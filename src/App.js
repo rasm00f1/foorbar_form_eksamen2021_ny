@@ -12,6 +12,7 @@ import { Router, Link } from "@reach/router";
 
 function App() {
   //Create stateful variables
+  const [orderId, setOrderId] = useState("");
   const [tapData, setTapData] = useState([]);
   const [beerTypes, setBeerTypes] = useState([]);
   const [queueData, setQueueData] = useState([]);
@@ -61,7 +62,9 @@ function App() {
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
-    });
+    })
+      .then((res) => res.json())
+      .then((dataobj) => setOrderId(dataobj.id));
     setCartItems([]);
   }
 
@@ -136,9 +139,9 @@ function App() {
       {/* Wrap components in Router to be able to only render 1 component at a time */}
       <Router>
         {/* Main view and Cartoverview, gets send the props it needs for functionality */}
-        <TapList path="/" queue={queue} serving={serving} prices={prices} taps={taps} beerTypesList={beerTypesList} cartItems={cartItems} addToCart={addToCart} totalPrice={totalPrice} calcTotalPrice={calcTotalPrice} />
+        <TapList path="/" orderId={orderId} queue={queue} serving={serving} prices={prices} taps={taps} beerTypesList={beerTypesList} cartItems={cartItems} addToCart={addToCart} totalPrice={totalPrice} calcTotalPrice={calcTotalPrice} />
         <CartOverview path="/cart" cartItems={cartItems} totalPrice={totalPrice} setCartItems={setCartItems} prices={prices} />
-        <PaymentForm path="/payment" cartItems={cartItems} totalPrice={totalPrice} post={post} />
+        <PaymentForm path="/payment" orderId={orderId} cartItems={cartItems} totalPrice={totalPrice} post={post} />
       </Router>
     </div>
   );
