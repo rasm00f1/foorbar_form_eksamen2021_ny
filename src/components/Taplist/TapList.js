@@ -3,7 +3,9 @@ import DataFlow from "./subcomponents/DataFlow";
 export default function TapList(props) {
   return (
     <main>
-      <h2>On Tap</h2>
+      <h2 style={{ textAlign: "center", fontWeight: "300" }}>
+        Hello space traveller.<br></br> What do you want to drink?
+      </h2>
       <div className="productList">
         {/* Create a Beer component for each of the taps, get send the props it needs to show */}
         {props.taps.map((beer) => (
