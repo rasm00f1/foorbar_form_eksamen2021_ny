@@ -143,11 +143,15 @@ article img {
   text-align: left;
   cursor: pointer;
 
+  display: flex;
+  justify-content: space-between;
+
   box-shadow: 4px 4px 0px #896bff;
   border-radius: 4px;
   padding: 10px;
   margin-top: 20px;
 
+  font-family: "a_astro_space";
   color: white;
 }
 
@@ -159,6 +163,8 @@ article img {
   padding: 10px;
 
   transform: translateY(-4px);
+
+  font-family: var(--paragraph-font);
   color: white;
 }
 

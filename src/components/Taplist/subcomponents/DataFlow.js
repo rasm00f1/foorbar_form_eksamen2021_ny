@@ -5,10 +5,10 @@ export default function DataFlow(props) {
   return (
     <div className="row_divider">
       <section className="data_section">
-        <h2>Serving</h2>
+        <h2>Queue</h2>
         <div className="data_container">
-          {props.serving.map((customer) => (
-            <Queue {...customer} key={customer.id} />
+          {props.queue.map((customer) => (
+            <Queue orderId={props.orderId} {...customer} key={customer.id} />
           ))}
         </div>
       </section>
@@ -27,10 +27,10 @@ export default function DataFlow(props) {
         </div>
       </section>
       <section className="data_section">
-        <h2>Queue</h2>
+        <h2>Serving</h2>
         <div className="data_container">
-          {props.queue.map((customer) => (
-            <Queue {...customer} key={customer.id} />
+          {props.serving.map((customer) => (
+            <Queue orderId={props.orderId} {...customer} key={customer.id} />
           ))}
         </div>
       </section>
