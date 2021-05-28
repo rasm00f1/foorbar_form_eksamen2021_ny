@@ -1,4 +1,4 @@
-import { Disclosure, Dialog, RadioGroup } from "@headlessui/react";
+import { Disclosure, Dialog } from "@headlessui/react";
 import { useState } from "react";
 import AddButton from "./AddButton";
 export default function Beer(props) {
