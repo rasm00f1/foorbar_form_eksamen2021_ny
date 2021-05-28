@@ -5,9 +5,9 @@ import "./Form.css";
 
 import { useState, useEffect } from "react";
 import useInterval from "./hooks/useInterval";
-import TapList from "./TapList";
-import CartOverview from "./CartOverview";
-import PaymentForm from "./PaymentForm";
+import TapList from "./components/Taplist/TapList";
+import CartOverview from "./components/CartOverview/CartOverview";
+import PaymentForm from "./components/PaymentForm/PaymentForm";
 import { Router, Link } from "@reach/router";
 
 function App() {

@@ -1,4 +1,4 @@
-import CartItem from "./CartItem";
+import CartItem from "./subcomponents/CartItem";
 import { Link } from "@reach/router";
 // import sameBeerPrice from "./CartItem";
 

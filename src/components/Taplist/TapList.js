@@ -1,5 +1,5 @@
-import Beer from "./Beer";
-import DataFlow from "./DataFlow";
+import Beer from "./subcomponents/Beer";
+import DataFlow from "./subcomponents/DataFlow";
 export default function TapList(props) {
   return (
     <main>
