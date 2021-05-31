@@ -1,6 +1,6 @@
-//Payment Component Jean
+// Payment Component Jean
 import Success from "./Success";
-
+// Importing Modules
 import { Link } from "@reach/router";
 import { useState, useEffect, useRef } from "react";
 import InputMask from "react-input-mask";
@@ -9,6 +9,7 @@ import { Input } from "antd";
 
 //https://codesandbox.io/s/antd-forked-nsp0e?file=/src/App.js - Form Validation
 export default function PaymentForm(props) {
+  // UseState, UseRef & UseRef
   const [name, setName] = useState("");
   const [cardnumber, setCardnumber] = useState("");
   const [monthYear, setMonthYear] = useState("");
@@ -19,9 +20,12 @@ export default function PaymentForm(props) {
   const form = useRef(null);
 
   useEffect(() => {
+    // Validate
+    // Check length
     const isCreditCardValid = cardnumber.replaceAll(" ", "").length === 16;
     const isMonthYearValid = monthYear.replace("/", "").length === 4;
     const isCvvValid = cvv.length === 3;
+    //Check form
     setIsValid(
       form.current.checkValidity() &&
         isMonthYearValid &&
@@ -30,6 +34,7 @@ export default function PaymentForm(props) {
     );
   }, [name, cardnumber, monthYear, cvv]);
 
+  //If valid submit form, setSubmitted = true -> flip
   function onSubmit(e) {
     e.preventDefault();
 
@@ -125,6 +130,7 @@ export default function PaymentForm(props) {
             onClick={props.post}
             disabled={!isValid}
             style={
+              // If not valid
               !isValid
                 ? {
                     cursor: "auto",
