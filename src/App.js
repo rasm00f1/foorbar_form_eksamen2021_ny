@@ -5,7 +5,7 @@ import "./Form.css";
 
 import { useState, useEffect } from "react";
 import useInterval from "./hooks/useInterval";
-import TapList from "./components/Taplist/TapList";
+import FormDashboard from "./components/FormDashboard/FormDashboard";
 import CartOverview from "./components/CartOverview/CartOverview";
 import PaymentForm from "./components/PaymentForm/PaymentForm";
 import { Router, Link } from "@reach/router";
@@ -139,7 +139,7 @@ function App() {
       {/* Wrap components in Router to be able to only render 1 component at a time */}
       <Router>
         {/* Main view and Cartoverview, gets send the props it needs for functionality */}
-        <TapList path="/" orderId={orderId} queue={queue} serving={serving} prices={prices} taps={taps} beerTypesList={beerTypesList} cartItems={cartItems} addToCart={addToCart} totalPrice={totalPrice} calcTotalPrice={calcTotalPrice} />
+        <FormDashboard path="/" orderId={orderId} queue={queue} serving={serving} prices={prices} taps={taps} beerTypesList={beerTypesList} cartItems={cartItems} addToCart={addToCart} totalPrice={totalPrice} calcTotalPrice={calcTotalPrice} />
         <CartOverview path="/cart" cartItems={cartItems} totalPrice={totalPrice} setCartItems={setCartItems} prices={prices} />
         <PaymentForm path="/payment" orderId={orderId} cartItems={cartItems} totalPrice={totalPrice} post={post} />
       </Router>

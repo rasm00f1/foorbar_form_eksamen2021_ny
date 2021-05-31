@@ -1,6 +1,6 @@
 import Beer from "./subcomponents/Beer";
 import DataFlow from "./subcomponents/DataFlow";
-export default function TapList(props) {
+export default function FormDashboard(props) {
   return (
     <main>
       <h2 style={{ textAlign: "center", fontWeight: "300" }}>
