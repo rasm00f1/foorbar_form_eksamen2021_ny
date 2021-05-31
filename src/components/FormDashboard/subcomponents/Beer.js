@@ -86,14 +86,24 @@ export default function Beer(props) {
           </Disclosure>
 
           <Disclosure>
-            <Disclosure.Button className="disclosure_button">APPEARANCE</Disclosure.Button>
+            <Disclosure.Button className="disclosure_button">
+              APPEARANCE
+              <svg width="14" height="14" viewBox="0 0 14 14">
+                <path d="M0 0L6.94944 13.0527L13.8989 0L0 0Z" fill="white" />
+              </svg>
+            </Disclosure.Button>
             <Disclosure.Panel className="disclosure">
               <Dialog.Description>{beerAppearance}</Dialog.Description>
             </Disclosure.Panel>
           </Disclosure>
 
           <Disclosure>
-            <Disclosure.Button className="disclosure_button">FLAVOR</Disclosure.Button>
+            <Disclosure.Button className="disclosure_button">
+              FLAVOR
+              <svg width="14" height="14" viewBox="0 0 14 14">
+                <path d="M0 0L6.94944 13.0527L13.8989 0L0 0Z" fill="white" />
+              </svg>
+            </Disclosure.Button>
             <Disclosure.Panel className="disclosure">
               <Dialog.Description>{beerFlavor}</Dialog.Description>
             </Disclosure.Panel>
