@@ -18,10 +18,12 @@ export default function PaymentForm(props) {
 
   const form = useRef(null);
 
+  //Goes off when input is changed
   useEffect(() => {
     const isCreditCardValid = cardnumber.replaceAll(" ", "").length === 16;
     const isMonthYearValid = monthYear.replace("/", "").length === 4;
     const isCvvValid = cvv.length === 3;
+    //If form/inputs is valid then the && are also valid/true
     setIsValid(
       form.current.checkValidity() &&
         isMonthYearValid &&
@@ -31,6 +33,7 @@ export default function PaymentForm(props) {
   }, [name, cardnumber, monthYear, cvv]);
 
   function onSubmit(e) {
+    //
     e.preventDefault();
 
     setSubmitted(true);
