@@ -78,12 +78,12 @@
 .logo {
   display: flex;
   justify-content: center;
-  padding-top: 2rem;
+  padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
 .logo img {
-  width: 250px;
+  width: 220px;
 }
 
 .row_divider {
@@ -194,7 +194,7 @@ main {
   box-shadow: 1px 1px 10px #47c4eb8a;
   padding: 10px;
   overflow-y: scroll;
-  height: 285px;
+  height: 275px;
   margin: 0 10px;
 }
 
