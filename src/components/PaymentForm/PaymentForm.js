@@ -33,7 +33,7 @@ export default function PaymentForm(props) {
   }, [name, cardnumber, monthYear, cvv]);
 
   function onSubmit(e) {
-    //
+    //Prevents default validation
     e.preventDefault();
 
     setSubmitted(true);

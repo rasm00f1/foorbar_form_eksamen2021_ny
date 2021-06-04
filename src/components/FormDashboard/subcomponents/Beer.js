@@ -1,3 +1,4 @@
+//Beer - Rasmus
 import { Disclosure, Dialog } from "@headlessui/react";
 import { useState } from "react";
 import AddButton from "./AddButton";
@@ -44,7 +45,12 @@ export default function Beer(props) {
   return (
     <article className="no_scroll" style={styles}>
       {/* Click on beer imgs opens modal/dialog */}
-      <img onClick={() => setIsOpen(true)} style={stylesImg} src={"./img/" + beerImg} alt="img" />
+      <img
+        onClick={() => setIsOpen(true)}
+        style={stylesImg}
+        src={"./img/" + beerImg}
+        alt="img"
+      />
       <h3>{props.beer}</h3>
 
       <h3>{beerAlc}%</h3>
@@ -109,7 +115,12 @@ export default function Beer(props) {
             </Disclosure.Panel>
           </Disclosure>
           {/* Add and remove button, gets sends the props it need for functionality */}
-          <AddButton calcTotalPrice={props.calcTotalPrice} setIsOpen={setIsOpen} addToCart={props.addToCart} {...props} />
+          <AddButton
+            calcTotalPrice={props.calcTotalPrice}
+            setIsOpen={setIsOpen}
+            addToCart={props.addToCart}
+            {...props}
+          />
         </div>
       </Dialog>
     </article>

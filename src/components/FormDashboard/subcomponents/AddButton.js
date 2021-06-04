@@ -1,3 +1,4 @@
+//AddButton - Rasmus
 import { useState } from "react";
 export default function AddButton(props) {
   //inline styling for the button container
@@ -29,7 +30,9 @@ export default function AddButton(props) {
 
   //Add an item in queuedCartItems stateful variable, and sets them
   function addToCartQueue(payload) {
-    const inCart = queueCartItems.findIndex((item) => item.beer === payload.beer);
+    const inCart = queueCartItems.findIndex(
+      (item) => item.beer === payload.beer
+    );
     if (inCart === -1) {
       //add
       const nextPayload = { ...payload };
@@ -73,15 +76,28 @@ export default function AddButton(props) {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <div style={buttonContainer}>
-        <button disabled={amount === 0} className="indexButton" onClick={decClick} style={{ borderRadius: "4px 0px 0px 4px" }}>
+        <button
+          disabled={amount === 0}
+          className="indexButton"
+          onClick={decClick}
+          style={{ borderRadius: "4px 0px 0px 4px" }}
+        >
           -
         </button>
         <p>{amount}</p>
-        <button className="indexButton" onClick={incClick} style={{ borderRadius: "0px 4px 4px 0px" }}>
+        <button
+          className="indexButton"
+          onClick={incClick}
+          style={{ borderRadius: "0px 4px 4px 0px" }}
+        >
           +
         </button>
       </div>
-      <button className="button_blue" disabled={amount === 0} onClick={addToCartForward}>
+      <button
+        className="button_blue"
+        disabled={amount === 0}
+        onClick={addToCartForward}
+      >
         Add
       </button>
     </div>
