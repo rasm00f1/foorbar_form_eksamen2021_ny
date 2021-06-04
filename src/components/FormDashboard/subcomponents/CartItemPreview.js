@@ -1,3 +1,4 @@
+//CartItemPreview - Jean & Rasmus
 export default function CartItemPreview(props) {
   let beerPrice = 0;
   props.prices.map((price) => {

@@ -1,12 +1,9 @@
+//CartOverview - Jean & Rasmus
 import CartItem from "./subcomponents/CartItem";
 import { Link } from "@reach/router";
-// import sameBeerPrice from "./CartItem";
 
-//CartOverview - Jean & Rasmus
 //Sending cartItems from App.js
 export default function CartOverview(props) {
-  //   console.log(sameBeerPrice);
-
   return (
     <section className="overview_wrapper">
       <button className="back_button overview_back">
@@ -21,7 +18,14 @@ export default function CartOverview(props) {
         {props.cartItems.map((item) => (
           // Creating a new components for the item
 
-          <CartItem {...item} cartItems={props.cartItems} setCartItems={props.setCartItems} key={item.id} prices={props.prices} totalPrice={props.totalPrice} />
+          <CartItem
+            {...item}
+            cartItems={props.cartItems}
+            setCartItems={props.setCartItems}
+            key={item.id}
+            prices={props.prices}
+            totalPrice={props.totalPrice}
+          />
         ))}
         <div className="overview_subtotal">
           <h3>Subtotal {props.totalPrice} KR.</h3>
@@ -29,7 +33,20 @@ export default function CartOverview(props) {
         {props.cartItems.length === 0 ? (
           <h3>Your cart is empty.</h3>
         ) : (
-          <button disabled={props.cartItems.length === 0} style={props.cartItems.length === 0 ? { cursor: "auto", backgroundColor: "grey", boxShadow: "4px 4px 0px black", opacity: "0.5" } : {}} className="button_blue payment_button">
+          <button
+            disabled={props.cartItems.length === 0}
+            style={
+              props.cartItems.length === 0
+                ? {
+                    cursor: "auto",
+                    backgroundColor: "grey",
+                    boxShadow: "4px 4px 0px black",
+                    opacity: "0.5",
+                  }
+                : {}
+            }
+            className="button_blue payment_button"
+          >
             <Link to="/payment" className="link_parent">
               TO PAYMENT
             </Link>
